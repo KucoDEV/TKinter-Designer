@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+
+<!-- Mirrored from visualtk.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Apr 2024 17:00:24 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>TK Designer</title>
+    <meta name="keywords" content="Visual TK, Visual Tkinter, TK Maker， TK Creator, TK Windows Creator, Tk Form Creator, Tkinter Maker, Tkinter Creator, Tkinter Form Creator">
+    <meta name="description" content="With Visual TK, you can design Tkinter Form(Window) by dragging and dropping Widgets Button, Lables, CheckBox, RadioBox, Entry, ListBox, Message, Container and Frame.">
+
+    <link rel="shortcut icon" href="dist/img/logo.ico">
+    <link rel="apple-touch-icon" sizes="45x45" href="dist/img/logo.png">
+
+    <link rel="stylesheet" href="dist/css/normalize.css" media="all">
+    <link rel="stylesheet" href="dist/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="dist/textarea/codemirror.css" media="all">
+    <link rel="stylesheet" href="dist/css/global.css" media="all">
+    <link rel="stylesheet" href="dist/css/contextMenu.css" />
+
+    <script src="dist/js/jquery.min.js"></script>
+    <script src="dist/js/jquery.contextMenu.min.js"></script>
+    <script src="dist/textarea/codemirror.js"></script>
+    <script src="dist/textarea/mode/javascript/javascript.js"></script>
+    <script src="dist/layui/layui.js"></script>
+ 
+    <script src="dist/js/drag.js"></script>
+    <script src="dist/js/dropdown.js"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="logo">
+                Designer
+            </div>
+            <div class="site-demo-button">
+                <form name="form1" class="layui-form">
+                    <input type="file" name="file" id="filePicker" onchange="show()" style="display:none;" />
+                    <div class="dropdown dropdown-project">
+                        <button class="btn-project" type="button" id="dropdownProject" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Projet
+                          <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownProject">
+                          <li class="export"><a href="javascript:void(0);" id="btn_div_save">Export</a></li>
+                          <li class="import"><a href="javascript:void(0);" onclick="document.form1.filePicker.click()">Import</a></li>
+                        </ul>
+                    </div>
+                    <div class="dropdown dropdown-download">
+                        <button class="btn-download" type="button" id="dropdownDownload" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Télécharger
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownDownload">
+                            <li class="down"><a href="javascript:void(0);" id="btn_py_save">Python</a></li>
+                            <!-- <li class="down"><a href="javascript:void(0);">PHP</a></li> -->
+                        </ul>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="container">
+            <div class="left main-warper html-tags">
+                <div class="layui-collapse">
+                    <div class="layui-colla-item">
+                        <br><br><br><br>
+                        <div class="layui-colla-content layui-show">
+                            <!-- GLabel---TK Label background-image: url(img/toolsbar/button.png);background-repeat: no-repeat;background-size:cover;-->
+                            <div class="layui-form-item">
+                                <span class="box label" id="GLabel" draggable="true"
+                                    ondragstart="drag(event)">Texte</span>
+                            </div>
+
+                            <!-- GButton---TK Button -->
+                            <div class="layui-form-item">
+                                <span class="button" id="GButton" draggable="true"
+                                    ondragstart="drag(event)">Bouton</button>
+                                </span>
+                            </div>
+
+                            <!-- GCheckBox---TK CheckBox -->
+                            <div class="layui-form-item">
+                                <span class="checkBox" id="GCheckBox" draggable="true"
+                                    ondragstart="drag(event)">checkBox</span>
+                            </div>
+
+                            <!-- GRadio---TK radio -->
+                            <div class="layui-form-item">
+                                <span class="radiobutton" id="GRadio" draggable="true"
+                                    ondragstart="drag(event)">Radio</span>
+                            </div>
+
+                            <!-- GLineEdit---TK lineedit -->
+                            <div class="layui-form-item">
+                                <span class="entry" id="GLineEdit" draggable="true"
+                                    ondragstart="drag(event)">Entrée</span>
+                            </div>
+
+                            <!-- GListBox---TK listbox -->
+                            <div class="layui-form-item">
+                                <span class="listbox" id="GListBox" draggable="true"
+                                    ondragstart="drag(event)">Liste</span>
+                            </div>
+
+                            <!-- GMessage---Message-->
+                            <div class="layui-form-item">
+                                <span class="message" id="GMessage" draggable="true"
+                                    ondragstart="drag(event)">Message</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content main-warper">
+                <div id="canvas" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div id="canvascoor" class="coor transparent" style="display: block;"></div>
+                </div>
+
+                <!-- 显示phython代码 -->
+                <div id="srccode" ondrop="drop(event)" ondragover="allowDrop(event)" >
+                    <div style="text-align: left;display: none;" id="codecontent" >
+                        <textarea id="code" name="code"></textarea>
+                    </div>
+                    <button type="button" class="btn-action visual active" id="btn_div_visual1">Visuel</button>
+                    <button type="button" class="btn-action python" id="btn_div_display1">Python</button>
+                </div>
+                                
+            </div>
+            <div class="right main-warper">
+                <form class="layui-form layui-form-pane" action="#">
+                    <div class="layui-collapse">
+                        <div class="layui-colla-item">
+                            <h2 class="layui-colla-title">Size</h2>
+                            <div class="layui-colla-content layui-show">
+                                <div class="layui-form-item size">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">Width:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="el_width" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">Height:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="el_height" class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item size">
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">Top:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="el_top" class="layui-input">
+                                        </div>
+                                    </div>
+                                    <div class="layui-inline">
+                                        <label class="layui-form-label">Left:</label>
+                                        <div class="layui-input-inline">
+                                            <input type="text" id="el_left" class="layui-input">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item id">
+                                    <label class="layui-form-label">ID</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="el_selectid" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-colla-item" id="windowstitle">
+                            <h2 class="layui-colla-title">Windows Title</h2>
+                            <div class="layui-colla-content layui-show">
+                                <div class="layui-form-item id">
+                                    <label class="layui-form-label">Title</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="el_title" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-colla-item" id="content">
+                            <h2 class="layui-colla-title">Content</h2>
+                            <div class="layui-colla-content layui-show">
+                                <div class="layui-form-item color">
+                                    <label class="layui-form-label"
+                                        title="Activebackground--What background color to use when the button is active. The default is system specific.">Activebackground:</label>
+                                    <div id="activefontcolor-select"></div>
+                                </div>
+
+                                <div class="layui-form-item color">
+                                    <label class="layui-form-label"
+                                        title="Activeforeground--What foreground color to use when the button is active. The default is system specific.">Activeforeground:</label>
+                                    <div id="activecolor-select"></div>
+                                </div>
+
+                                <div class="layui-form-item select">
+                                    <label class="layui-form-label"
+                                        title="Controls where in the label the text (or image) should be located. Use one of N, NE, E, SE, S, SW, W, NW, or CENTER. Default is CENTER. (anchor/Anchor)">Anchor:</label>
+                                    <div class="layui-input-inline">
+                                        <select id="selectAnchor" lay-filter="testAnchor">
+                                            <option value="" selected="">Select</option>
+                                            <option value="center">CENTER</option>
+                                            <option value="n">N</option>
+                                            <option value="ne">NE</option>
+                                            <option value="e">E</option>
+                                            <option value="se">SE</option>
+                                            <option value="s">SW</option>
+                                            <option value="w">W</option>
+                                            <option value="nw">NW</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item color">
+                                    <label class="layui-form-label" title="The background color. The default is platform specific. (background/Background)
+                                                ">Background-color:</label>
+                                    <div id="color-select"></div>
+                                </div>
+
+                                <div class="layui-form-item file select-bitmap">
+                                    <label class="layui-form-label">bitmap:</label>
+                                    <div class="layui-input-inline">
+                                        <input type="file" id="el_selectbitmap" class="layui-input">
+                                    </div>
+                                </div>
+
+
+                                <div class="layui-form-item select">
+                                    <label class="layui-form-label"
+                                        title="The width of the label border. The default is system specific, but is usually one or two pixels. (borderWidth/BorderWidth)">Border:</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="el_borderwidth" class="layui-input">
+                                    </div>
+                                </div>
+                                <div class="layui-form-item select">
+                                    <label class="layui-form-label">compound:</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="el_selectcompound" class="layui-input"
+                                            value="not support">
+                                    </div>
+                                </div>
+
+                                <!-- cursor -->
+                                <div class="layui-form-item select">
+                                    <label class="layui-form-label">cursor:</label>
+                                    <div class="layui-input-inline" style="width: 120px;">
+                                        <select style="color:dimgrey; width:120px;font-size:18px; line-height: 1.5em;"
+                                            id="selectcursor" lay-filter="testcursor">
+                                            <option value="arrow" selected="">arrow</option>
+                                            <option value="circle">circle</option>
+                                            <option value="clock">clock</option>
+                                            <option value="cross">cross</option>
+                                            <option value="dotbox">dotbox</option>
+                                            <option value="exchange">exchange</option>
+
+                                            <option value="fleur">fleur</option>
+                                            <option value="heart">heart</option>
+                                            <option value="man">man</option>
+                                            <option value="mouse">mouse</option>
+                                            <option value="pirate">pirate</option>
+
+                                            <option value="plus">plus</option>
+                                            <option value="shuttle">shuttle</option>
+                                            <option value="sizing">sizing</option>
+                                            <option value="spider">spider</option>
+                                            <option value="spraycan">spraycan</option>
+
+                                            <option value="star">star</option>
+                                            <option value="target">target</option>
+                                            <option value="tcross">tcross</option>
+                                            <option value="trek">trek</option>
+                                            <option value="watch">watch</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item color">
+                                    <label class="layui-form-label"
+                                        title="disabledforeground">disabledforeground:</label>
+                                    <div id="disabledforeground-select"></div>
+                                </div>
+
+                                <div class="layui-form-item select">
+                                    <label class="layui-form-label">Font-size:</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="el_selectfontsize" class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item color">
+                                    <label class="layui-form-label">foreground:</label>
+                                    <div id="fontcolor-select"></div>
+                                </div>
+
+
+                                <div class="layui-form-item file">
+                                    <label class="layui-form-label">image:</label>
+                                    <div class="layui-input-inline">
+                                        <input type="file" id="el_selectimage" class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item select">
+                                    <label class="layui-form-label"
+                                        title="Defines how to align multiple lines of text. Use LEFT, RIGHT, or CENTER. Default is CENTER. (justify/Justify)">justify:</label>
+                                    <div class="layui-input-inline">
+                                        <select id="select" lay-filter="test">
+                                            <option value="">Select</option>
+                                            <option value="center" selected="">Center</option>
+                                            <option value="left">Left</option>
+                                            <option value="right">Right</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item select">
+                                    <label class="layui-form-label">text:</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="el_selectcontent" class="layui-input">
+                                    </div>
+                                </div>
+
+                                <!-- relief -->
+                                <div class="layui-form-item select">
+                                    <label class="layui-form-label" title="Border decoration. Usually, the button is SUNKEN when pressed, and RAISED otherwise. Other possible values are GROOVE, RIDGE, and FLAT. Default is RAISED. (relief/Relief)
+                                                ">Relief:</label>
+                                    <div class="layui-input-inline">
+                                        <select id="selectrelief" lay-filter="testrelief">
+                                            <option value="">Select</option>
+                                            <option value="flat" selected="">Flat</option>
+                                            <option value="sunken">Sunken</option>
+                                            <option value="raised">Raised</option>
+                                            <option value="groove">Groove</option>
+                                            <option value="ridge">Ridge</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-colla-item" id="checkbox_attr" style="display:none;">
+                            <h2 class="layui-colla-title">CheckBox</h2>
+                            <div class="layui-colla-content layui-show">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">offvalue:</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="el_CheckBoxoffvalue" class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">onvalue:</label>
+                                    <div class="layui-input-inline">
+                                        <input type="text" id="el_CheckBoxonvalue" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-colla-item" id="radiobutton_attr" style="display:none;">
+                            <h2 class="layui-colla-title">Radiobutton</h2>
+                            <div class="layui-colla-content layui-show">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">value:</label>
+                                    <div class="layui-input-inline" style="width: 120px;">
+                                        <input type="text" id="el_radiobuttonvalue" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-colla-item" id="entry_attr" style="display:none;">
+                            <h2 class="layui-colla-title">Entry</h2>
+                            <div class="layui-colla-content layui-show">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label">show:</label>
+                                    <div class="layui-input-inline" style="width: 120px;">
+                                        <input type="text" id="el_entryshow" class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label" title="invalidcommand">invalidcommand:</label>
+                                    <div class="layui-input-inline" style="width: 120px;">
+                                        <input type="text" id="el_invalidcommand" class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label" title="validatecommand">validatecommand:</label>
+                                    <div class="layui-input-inline" style="width: 120px;">
+                                        <input type="text" id="el_validatecommand" class="layui-input">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="layui-colla-item" id="listbox_attr" style="display:none;">
+                            <h2 class="layui-colla-title">ListBox</h2>
+                            <div class="layui-colla-content layui-show">
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label" title="exportselection">exportselection:</label>
+                                    <div class="layui-input-inline" style="width: 120px;">
+                                        <select style="color:dimgrey; width:120px;font-size:18px; line-height: 1.5em;"
+                                            id="selectexportselection" lay-filter="testexportselection">
+                                            <option value="1" selected>1</option>
+                                            <option value="0">0</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label" title="listvariable">listvariable:</label>
+                                    <div class="layui-input-inline" style="width: 120px;">
+                                        <input type="text" id="el_listvariable" class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item color">
+                                    <label class="layui-form-label" title="selectbackground">selectbackground:</label>
+                                    <div id="selectbackground-select"></div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label" title="selectborderwidth">selectborderwidth:</label>
+                                    <div class="layui-input-inline" style="width: 120px;">
+                                        <input type="text" id="el_selectborderwidth" class="layui-input">
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item color">
+                                    <label class="layui-form-label" title="selectforeground">selectforeground:</label>
+                                    <div id="selectforeground-select"></div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label" title="selectmode">selectmode:</label>
+                                    <div class="layui-input-inline" style="width: 120px;">
+                                        <select style="color:dimgrey; width:120px;font-size:18px; line-height: 1.5em;"
+                                            id="listboxselectmode" lay-filter="testselectmode">
+                                            <option value="single">single</option>
+                                            <option value="browse" selected="">browse</option>
+                                            <option value="multiple">multiple</option>
+                                            <option value="extended">extended</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="layui-form-item">
+                                    <label class="layui-form-label" title="setgrid">setgrid:</label>
+                                    <div class="layui-input-inline" style="width: 120px;">
+                                        <select style="color:dimgrey; width:120px;font-size:18px; line-height: 1.5em;"
+                                            id="listboxsetgrid" lay-filter="testsetgrid">
+                                            <option value="False" selected="">False</option>
+                                            <option value="True">True</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="dist/js/codeview.js"></script>
+</body>
+
+</html>
