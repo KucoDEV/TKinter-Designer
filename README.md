@@ -10,7 +10,7 @@ A next-generation tool that makes it easy to create amazing python applications
 
 **&searr;&nbsp;&nbsp;The official documentation&nbsp;&nbsp;&swarr;**
 
-[Français](https://github.com/KucoDEV/TKinter-Designer/blob/main/Docs/README_FR.md) · [English](https://github.com/KucoDEV/TKinter-Designer/blob/main/README.md)
+[English](https://github.com/KucoDEV/TKinter-Designer/blob/main/README.md)
 
 **&searr;&nbsp;&nbsp;Share the project's link to your friends&nbsp;&nbsp;&swarr;**
 
@@ -24,7 +24,6 @@ A next-generation tool that makes it easy to create amazing python applications
 
 - 100% **free** and **open source**!
 - For **any** developer's level of knowledge and technical expertise, as the intelligent tool does most of the routine project setup for you, creates an understandable structure, and prepares code for use and deployment in production.
-- **Well-documented**, includes translations in **many other languages** ([Français](https://github.com/KucoDEV/TKinter-Designer/blob/main/Docs/README_FR.md).
 - Enables you to **start a new python project faster**.
 - Ready-to-use website that can run in **any environment**.
 
