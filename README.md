@@ -45,8 +45,7 @@ That's it! 🔥 A wonderful web application to help you create TKinter window.
 ## 🌟 Stargazers
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=KucoDEV/KucoDEV&type=Date&theme=dark"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=KucoDEV/KucoDEV&type=Date"/>
+  <source srcset="https://api.star-history.com/svg?repos=KucoDEV/KucoDEV&type=Date&theme=dark"/>
   <img width="100%" alt="The Gowebly CLI star history chart" src="https://api.star-history.com/svg?repos=KucoDEV/KucoDEV&type=Date"/>
 </picture>
 
