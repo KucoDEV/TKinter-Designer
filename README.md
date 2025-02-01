@@ -1,68 +1,32 @@
-<div align="center">
+# 🎨 TK Designer
 
-<a href="https://gowebly.org" target="_blank" title="Go to the Gowebly CLI website"><img width="196px" alt="gowebly logo" src="https://raw.githubusercontent.com/gowebly/.github/main/images/gowebly-logo.svg"></a>
+## 📜 Description
 
-<a name="readme-top"></a>
+**TK Designer** est une interface visuelle permettant de concevoir facilement des fenêtres Tkinter en utilisant un système de glisser-déposer. Il simplifie le développement d'interfaces graphiques en Python en générant automatiquement le code correspondant aux widgets utilisés.
 
-# The TKinter Designer
+## ⚡ Fonctionnalités
 
-A next-generation tool that makes it easy to create amazing python applications
+- 📌 **Glisser-déposer** de widgets Tkinter : boutons, entrées, labels, checkboxes, etc.
+- 💾 **Import et export** de projets.
+- 🔧 **Génération automatique** du code Python Tkinter.
+- 🎨 **Personnalisation avancée** : couleurs, polices, dimensions, styles.
+- 📂 **Sauvegarde et chargement** de projets existants.
 
-**&searr;&nbsp;&nbsp;The official documentation&nbsp;&nbsp;&swarr;**
+## 🛠️ Prérequis
 
-[English](https://github.com/KucoDEV/TKinter-Designer/blob/main/README.md)
+Assurez-vous d'avoir Python et Tkinter installés sur votre machine pour exécuter les scripts générés.
 
-**&searr;&nbsp;&nbsp;Share the project's link to your friends&nbsp;&nbsp;&swarr;**
+## 🚀 Installation et exécution
 
-[![Share on X][x_share_img]][x_share_url]
-[![Share on Telegram][telegram_share_img]][telegram_share_url]
-[![Share on Reddit][reddit_share_img]][reddit_share_url]
+1. Clonez ce repository ou téléchargez le fichier `index.html`.
+2. Ouvrez `index.html` dans un navigateur compatible.
+3. Utilisez l'interface pour créer vos fenêtres Tkinter.
+4. Exportez le code Python généré et intégrez-le à vos projets.
 
-</div>
+## ⚠️ État du projet
 
-## ✨ Features
+Ce projet n'a pas été entretenu depuis près d'un an. Son fonctionnement actuel n'est pas garanti.
 
-- 100% **free** and **open source**!
-- For **any** developer's level of knowledge and technical expertise, as the intelligent tool does most of the routine project setup for you, creates an understandable structure, and prepares code for use and deployment in production.
-- Enables you to **start a new python project faster**.
-- Ready-to-use website that can run in **any environment**.
+## 📜 Licence
 
-## ⚡️ Quick start
-
-First, [download](https://www.python.org/downloads/) and install **Python**. Version `3.10` (or higher) is required for the code generated.
-
-Now, you can use the **Designer** without installation. Just run the index file!
-
-That's it! 🔥 A wonderful web application to help you create TKinter window.
-
-<div align="right">
-
-[&nwarr; Back to top](#readme-top)
-
-</div>
-
-## 🌟 Stargazers
-
-<picture>
-  <source srcset="https://api.star-history.com/svg?repos=KucoDEV/KucoDEV&type=Date&theme=dark"/>
-  <img width="100%" alt="The Gowebly CLI star history chart" src="https://api.star-history.com/svg?repos=KucoDEV/KucoDEV&type=Date"/>
-</picture>
-
-## ⚠️ License
-
-[`The TKinter Designer`][repo_url] is free and open-source software licensed under the [Apache 2.0 License].
-
-<!-- Repository links -->
-[repo_url]: https://github.com/KucoDEV/TKinter-Designer
-
-<!-- Author links -->
-[author_url]: https://github.com/koddr
-
-<!-- Social links -->
-[x_share_url]: https://x.com
-[telegram_share_url]: https://t.me
-[reddit_share_url]: https://www.reddit.com
-[x_share_img]: https://img.shields.io/badge/x_(twitter)-black?style=for-the-badge&logo=x
-[telegram_share_img]: https://img.shields.io/badge/telegram-black?style=for-the-badge&logo=telegram
-[whatsapp_share_img]: https://img.shields.io/badge/whatsapp-black?style=for-the-badge&logo=whatsapp
-[reddit_share_img]: https://img.shields.io/badge/reddit-black?style=for-the-badge&logo=reddit
+Ce projet est sous licence MIT. Vous êtes libre de le modifier et de le redistribuer.
