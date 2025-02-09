@@ -2,31 +2,31 @@
 
 ## 📜 Description
 
-**TK Designer** est une interface visuelle permettant de concevoir facilement des fenêtres Tkinter en utilisant un système de glisser-déposer. Il simplifie le développement d'interfaces graphiques en Python en générant automatiquement le code correspondant aux widgets utilisés.
+**TK Designer** is a visual interface that allows easy design of Tkinter windows using a drag-and-drop system. It simplifies graphical interface development in Python by automatically generating the corresponding code for the used widgets.
 
-## ⚡ Fonctionnalités
+## ⚡ Features
 
-- 📌 **Glisser-déposer** de widgets Tkinter : boutons, entrées, labels, checkboxes, etc.
-- 💾 **Import et export** de projets.
-- 🔧 **Génération automatique** du code Python Tkinter.
-- 🎨 **Personnalisation avancée** : couleurs, polices, dimensions, styles.
-- 📂 **Sauvegarde et chargement** de projets existants.
+- 📌 **Drag-and-drop** Tkinter widgets: buttons, entries, labels, checkboxes, etc.
+- 💾 **Import and export** projects.
+- 🔧 **Automatic generation** of Python Tkinter code.
+- 🎨 **Advanced customization**: colors, fonts, dimensions, styles.
+- 📂 **Save and load** existing projects.
 
-## 🛠️ Prérequis
+## 🛠️ Prerequisites
 
-Assurez-vous d'avoir Python et Tkinter installés sur votre machine pour exécuter les scripts générés.
+Make sure you have Python and Tkinter installed on your machine to run the generated scripts.
 
-## 🚀 Installation et exécution
+## 🚀 Installation and Execution
 
-1. Clonez ce repository ou téléchargez le fichier `index.html`.
-2. Ouvrez `index.html` dans un navigateur compatible.
-3. Utilisez l'interface pour créer vos fenêtres Tkinter.
-4. Exportez le code Python généré et intégrez-le à vos projets.
+1. Clone this repository or download the `index.html` file.
+2. Open `index.html` in a compatible browser.
+3. Use the interface to create your Tkinter windows.
+4. Export the generated Python code and integrate it into your projects.
 
-## ⚠️ État du projet
+## ⚠️ Project Status
 
-Ce projet n'a pas été entretenu depuis près d'un an. Son fonctionnement actuel n'est pas garanti.
+This project has not been maintained for nearly a year. Its current functionality is not guaranteed.
 
-## 📜 Licence
+## 📜 License
 
-Ce projet est sous licence MIT. Vous êtes libre de le modifier et de le redistribuer.
+This project is licensed under the MIT license. You are free to modify and redistribute it.
